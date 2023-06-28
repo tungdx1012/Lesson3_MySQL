@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,4 +17,7 @@ public class Trainer implements Serializable {
     private Integer id;
     private Integer account_id;
     private String name;
+
+    @OneToMany(mappedBy = "trainer")
+    private List<Horse> horses;
 }

@@ -87,7 +87,8 @@ select t.id, t.name, a.username, a.password
 from trainer t join account a on t.account_id = a.id 
 join horse_account ha on ha.account_id = a.id 
 join horse h on h.id = ha.horse_id 
-group by ha.account_id having count(ha.horse_id) > 2;
+group by t.id, t.name, a.username, a.password
+having count(ha.horse_id) > 2;
 
 -- C6 : Find all horse exist 
 select t.id as ID, t.name as Trainer, h.name as Horse, h.id as HorseID
